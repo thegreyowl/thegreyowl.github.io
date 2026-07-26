@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gregory M. Barnes — Warehouse, Facilities & Logistics Specialist</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #e8e8e8;
+      background: #0a0a0a;
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0.55) 0%,
+          rgba(0,0,0,0.35) 40%,
+          rgba(0,0,0,0.75) 100%
+        ),
+        url('owl.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(180deg, transparent, #0a0a0a);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+      margin-bottom: 8px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero .handle {
+      font-family: "Georgia", serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: #d4af37;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+      margin-bottom: 24px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero .tagline {
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      max-width: 620px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+      z-index: 2;
+      position: relative;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #d4af37;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 3;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #d4af37;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    p { margin-bottom: 14px; color: #d0d0d0; }
+
+    .about-text {
+      font-size: 1.05rem;
+      color: #e0e0e0;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+      border: 1px solid #2a2a2a;
+      border-left: 3px solid #d4af37;
+      padding: 18px 20px;
+      border-radius: 4px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      border-left-color: #ffd700;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin: 0;
+    }
+
+    .work-item {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .work-item strong {
+      display: block;
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .work-item span {
+      color: #a0a0a0;
+      font-size: 0.92rem;
+    }
+
+    .contact-section {
+      text-align: center;
+      padding: 40px 24px 80px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .contact-section h2 {
+      text-align: left;
+    }
+
+    .contact-info {
+      margin: 20px 0 30px;
+      font-size: 1.1rem;
+    }
+
+    .contact-info a {
+      color: #d4af37;
+      text-decoration: none;
+      border-bottom: 1px solid #d4af37;
+    }
+
+    .contact-info a:hover {
+      color: #ffd700;
+      border-bottom-color: #ffd700;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      background: #ffd700;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #d4af37;
+      border: 1px solid #d4af37;
+    }
+
+    .btn-secondary:hover {
+      background: #d4af37;
+      color: #0a0a0a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 24px;
+      color: #666;
+      font-size: 0.85rem;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero .handle { font-size: 1.1rem; }
+      .hero .tagline { font-size: 1rem; }
+      .hero { background-attachment: scroll; min-height: 60vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Gregory M. Barnes</h1>
+    <div class="handle">— thegreyowl —</div>
+    <p class="tagline">
+      Independent warehouse, facilities &amp; logistics specialist.<br>
+      10+ years of hands-on experience in operations, maintenance, and automation.
+    </p>
+    <div class="scroll-hint">↓ scroll ↓</div>
+  </header>
+
+  <main class="content">
+
+    <h2>About</h2>
+    <p class="about-text">
+      I'm an all-around warehouse specialist with over a decade of experience
+      keeping facilities running and operations moving. I work with startups
+      and established companies on warehouse operations, facilities
+      maintenance and repair, logistics, and commerce. Available for
+      contract and 1099 engagements.
+    </p>
+
+    <h2>Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Warehouse Operations</h3>
+        <p>Picking, packing, inventory, shipping &amp; receiving</p>
+      </div>
+      <div class="service-card">
+        <h3>Facilities Maintenance</h3>
+        <p>Hands-on troubleshooting, repair, and preventive upkeep</p>
+      </div>
+      <div class="service-card">
+        <h3>Lift Truck Operation</h3>
+        <p>Certified forklift, reach truck, and pallet jack operation</p>
+      </div>
+      <div class="service-card">
+        <h3>Automation Tech</h3>
+        <p>Supporting automated systems, conveyors, and warehouse equipment</p>
+      </div>
+      <div class="service-card">
+        <h3>Logistics Support</h3>
+        <p>Fulfillment, inventory flow, and team coordination</p>
+      </div>
+      <div class="service-card">
+        <h3>Union Freight</h3>
+        <p>Job-site adaptability, safety, and crew leadership</p>
+      </div>
+    </div>
+
+    <h2>Experience</h2>
+    <div class="work-item">
+      <strong>Lead Maintenance Technician — Quickbox Fulfillment</strong>
+      <span>Worked alongside Bill Adams as lead maintenance technician
+      supporting fulfillment operations and facility upkeep.
+      (Reference: Bill Adams, 1-717-315-8095)</span>
+    </div>
+    <div class="work-item">
+      <strong>Warehouse Operator (Contract) — Dumak USA</strong>
+      <span>Contracted as warehouse operator handling day-to-day operations,
+      material handling, and team coordination. Supervisor: Elisa.</span>
+    </div>
+    <div class="work-item">
+      <strong>Forklift Operator / Apprentice — Local Unions 728 &amp; 834</strong>
+      <span>Contracted through local unions as a forklift operator,
+      apprentice, and decorative industrial worker across multiple job sites.</span>
+    </div>
+    <div class="work-item">
+      <strong>Order Picker — Merit Logistics, LLC</strong>
+      <span>Pulled merchandise and loaded pallets for outbound fulfillment
+      in San Juan Capistrano, CA.</span>
+    </div>
+    <div class="work-item">
+      <strong>Order Picker — Strom Engineering</strong>
+      <span>Picked merchandise, inspected for damage, and met end-of-shift
+      targets in Hopkins, MN.</span>
+    </div>
+
+  </main>
+
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-info">
+      <a href="mailto:gregorymkbarnes@gmail.com">gregorymkbarnes@gmail.com</a>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="resume.pdf" download>📄 Download Resume</a>
+      <a class="btn btn-secondary" href="mailto:gregorymkbarnes@gmail.com">✉️ Send Email</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Gregory M. Barnes — thegreyowl. Open to contract &amp; 1099 engagements.
+  </footer>
+
+</body>
+</html>
